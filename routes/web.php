@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\RouteCollection;
+use App\Http\Controllers\Dashboard\TestController;
+use App\Http\Controllers\Dashboard\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('product', ProductController::class);
