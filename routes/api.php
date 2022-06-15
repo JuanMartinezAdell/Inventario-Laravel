@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\LocationController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::resource('location', LocationController::class)->except(["create", "edit"]);
+    Route::resource('product', ProductController::class)->except(["create", "edit"]);
+});
+
 Route::get('product/all', [ProductController::class, 'all']);
 Route::get('location/all', [LocationController::class, 'all']);
 Route::get('product/code/{product:code}', [ProductController::class, 'code']);
 Route::get('location/{location}/products', [LocationController::class, 'products']);
 
-Route::resource('location', LocationController::class)->except(["create", "edit"]);
-Route::resource('product', ProductController::class)->except(["create", "edit"]);
+//usuarios
+Route::post('user/login', [UserController::class, 'login']);

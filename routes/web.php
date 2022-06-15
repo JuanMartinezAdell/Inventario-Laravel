@@ -30,4 +30,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::resource('location', LocationController::class);
 });
 
+
+
 require __DIR__ . '/auth.php';
