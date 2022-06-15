@@ -46,10 +46,10 @@
                         <form action="{{ route('location.destroy', $l) }}" method="post">
                             @method('DELETE')
                             @csrf
-                            <button class="btn btn-danger mt-2  " type="submit">Eliminar</button>
+                            <button class="btn btn-danger mt-2" type="submit">Eliminar</button>
                         </form>
                     </td>
-                </tr> mt-2
+                </tr>
             @endforeach
         </tbody>
     </table>
