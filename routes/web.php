@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Routing\RouteCollection;
-use App\Http\Controllers\Dashboard\TestController;
+use App\Http\Controllers\Dashboard\LocationController;
 use App\Http\Controllers\Dashboard\ProductController;
-
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('product', ProductController::class);
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name("dashboard");
+
+    Route::resource('product', ProductController::class);
+
+    Route::resource('location', LocationController::class);
+});
+
+require __DIR__ . '/auth.php';

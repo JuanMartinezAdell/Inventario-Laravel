@@ -406,6 +406,8 @@
 
 <body class="antialiased">
     <h1>Bienvenido</h1>
+
+    <p>Bienvenido, logeate para acceder al Almacen</p>
 </body>
 
 </html>

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<head>
-
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,29 +16,21 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-</head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @include('layouts.navigation')
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
+            <!-- Page Heading -->
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
 
-        <!-- Page Heading -->
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-
-            </div>
-        </header>
-
-        @if (session('status'))
-            {{ session('status') }}
-        @endif
-
-        <div class="container">
-            <div class="card card-white m-4">
-                @yield('content')
-            </div>
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
         </div>
-    </div>
-</body>
-
+    </body>
 </html>

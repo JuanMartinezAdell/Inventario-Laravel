@@ -26,19 +26,19 @@
         @csrf
 
         <label for="">Modelo</label>
-        <input type="text" name="model">
+        <input class="form-control" type="text" name="model">
 
         <label for="">Código</label>
-        <input type="text" name="code">
+        <input class="form-control" type="text" name="code">
 
         <label for="">Descripcion</label>
-        <textarea name="description"></textarea>
+        <textarea class="form-control" name="description"></textarea>
 
         <label for="">Fabricante</label>
-        <input type="text" name="maker">
+        <input class="form-control" type="text" name="maker">
 
         <label for="">Ubicación</label>
-        <select name="location_id">
+        <select class="form-control" name="location_id">
             <option value=""></option>
             @foreach ($locations as $name => $id)
             <option value="{{$id}}">{{{$name}}}</option>
@@ -46,7 +46,7 @@
         </select>
 
         <label for="">Estado</label>
-        <select name="condition">
+        <select class="form-control" name="condition">
             <option value=""></option>
             <option value="activo">activo</option>
             <option value="roto">roto</option>
@@ -54,10 +54,10 @@
         </select>
 
         <label for="">Stock</label>
-        <input type="number" name="stock">
+        <input class="form-control" type="number" name="stock">
 
 
-        <button type="submit">Enviar</button>
+        <button type="submit" class="btn btn-success mt-3">Enviar</button>
     </form>
     @endsection
 </body>

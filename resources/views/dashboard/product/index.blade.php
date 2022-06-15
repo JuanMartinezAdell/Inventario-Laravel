@@ -1,9 +1,9 @@
 @extends('dashboard.layout')
 
 @section('content')
-    <a href="{{ route('product.create') }}">Crear</a>
+    <a class="btn btn-warning m-3" href="{{ route('product.create') }}">Crear</a>
 
-    <table>
+    <table class="table mb-3">
         <thead>
             <tr>
                 <th>
@@ -23,6 +23,9 @@
                 </th>
                 <th>
                     Estado
+                </th>
+                <th>
+                    Acciones
                 </th>
             </tr>
         </thead>
@@ -48,14 +51,14 @@
                         {{ $p->condition }}
                     </td>
                     <td>
-                        <a href="{{ route('product.edit', $p) }}">Editar</a>
-                        <a href="{{ route('product.show', $p) }}">Ver</a>
+                        <a class="btn btn-success my-2" href="{{ route('product.edit', $p) }}">Editar</a>
+                        <a class="btn btn-primary my-2" href="{{ route('product.show', $p) }}">Ver</a>
 
 
                         <form action="{{ route('product.destroy', $p) }}" method="post">
                             @method('DELETE')
                             @csrf
-                            <button type="submit">Eliminar</button>
+                            <button class="btn btn-danger my-2" type="submit">Eliminar</button>
                         </form>
                     </td>
                 </tr>
