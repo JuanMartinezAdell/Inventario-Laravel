@@ -22,10 +22,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
+/*Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('location', LocationController::class)->except(["create", "edit"]);
     Route::resource('product', ProductController::class)->except(["create", "edit"]);
-});
+});*/
+
+Route::resource('location', LocationController::class)->except(["create", "edit"]);
+Route::resource('product', ProductController::class)->except(["create", "edit"]);
 
 Route::get('product/all', [ProductController::class, 'all']);
 Route::get('location/all', [LocationController::class, 'all']);
